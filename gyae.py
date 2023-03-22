@@ -162,7 +162,7 @@ def spel_layout(användarnamn: str, difficulty: List):
         width=difficulty['x'],
         borderwidth=3,
         command=lambda: btn_position(difficulty),
-        bg="black"
+        bg="magenta2"
     )
 
     FRM_spel.pack()
