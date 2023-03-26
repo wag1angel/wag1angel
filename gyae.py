@@ -91,13 +91,14 @@ def spel_nivåer():
 
     FRM_användar_INFO.pack_forget()
     LBL_användare.pack_forget()
-    ENT_användarnamn.pack_forget
+    ENT_användarnamn.pack_forget()
     BTN_SUBMIT.pack_forget()
 
-    FRM_nivåer = tk.Frame(master=window, height=550, width=550, borderwidth=4, relief=tk.SUNKEN)
+    # make the window frame longer that hold the button together and lower the buttons
+    FRM_nivåer = tk.Frame(master=window, height=650, width=550, borderwidth=4, relief=tk.SUNKEN, background='black')
     FRM_nivåer.pack(fill=tk.BOTH)
 
-    LBL_nivå = tk.Label(master=FRM_nivåer, text="välj nivå:", pady=20, font=("Arial", 15))
+    LBL_nivå = tk.Label(master=FRM_nivåer, text="välj nivå:", pady=5, font=("Arial", 15), background='black', foreground='magenta2')
     LBL_nivå.pack()
 
     BTN_nybörjare = tk.Button(
@@ -105,7 +106,8 @@ def spel_nivåer():
         text="nybörjare", 
         height=3, width=15, 
         font=("Arial", 12),
-        command=lambda : spel_layout(spel_inställningar['användarnamn'], spel_inställningar['nybörjare'])
+        command=lambda : spel_layout(spel_inställningar['användarnamn'], spel_inställningar['nybörjare']),
+        background='black', foreground='magenta2'
         )
 
     BTN_normal = tk.Button(
@@ -113,7 +115,8 @@ def spel_nivåer():
         text="normal", 
         height=3, width=15,
         font=("Arial", 12),
-        command=lambda : spel_layout(spel_inställningar['användarnamn'], spel_inställningar['normal'])
+        command=lambda : spel_layout(spel_inställningar['användarnamn'], spel_inställningar['normal']),
+        background='black', foreground='magenta2'
         )
 
     BTN_svår = tk.Button(
@@ -121,12 +124,30 @@ def spel_nivåer():
         text="svår", 
         height=3, width=15,
         font=("Arial", 12),
-        command=lambda : spel_layout(spel_inställningar['användarnamn'], spel_inställningar['svår'])
+        command=lambda : spel_layout(spel_inställningar['användarnamn'], spel_inställningar['svår']),
+        background='black', foreground='magenta2'
         )
 
     BTN_nybörjare.pack(side=tk.TOP, fill=tk.BOTH)
     BTN_normal.pack(side=tk.TOP, fill=tk.BOTH)
     BTN_svår.pack(side=tk.TOP, fill=tk.BOTH)
+
+  
+    # center the buttons
+    FRM_nivåer.pack_propagate(False)
+    FRM_nivåer.grid_rowconfigure(0, weight=1)
+    FRM_nivåer.grid_rowconfigure(4, weight=1)
+    FRM_nivåer.grid_columnconfigure(0, weight=1)
+    FRM_nivåer.grid_columnconfigure(2, weight=1)
+
+    # center the buttons and move them down
+    BTN_nybörjare.grid(row=1, column=1, padx=10, pady=40, sticky='nsew')
+    BTN_normal.grid(row=2, column=1, padx=10, pady=40, sticky='nsew')
+    BTN_svår.grid(row=3, column=1, padx=10, pady=40, sticky='nsew')
+
+    window.configure(background='black')
+
+
 
 
 def spel_layout(användarnamn: str, difficulty: List):
