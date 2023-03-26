@@ -62,17 +62,26 @@ def introduction():
     FRM_anvandar_INFO = tk.Frame(master=window, bg='black')
     FRM_anvandar_INFO.pack(fill=tk.BOTH, expand=True)
 
-    LBL_anvandare = tk.Label(master=FRM_anvandar_INFO, text="Välj användarnamn: ", font=("Arial", 20), pady=15, bg='black', fg='magenta2')
+    # Lägg till titel
+    LBL_title = tk.Label(master=FRM_anvandar_INFO, text="Aim Trainer", font=("Arial", 30, "bold"), pady=20, bg='black', fg='magenta2')
+    LBL_title.pack()
+
+    # Centered text
+    FRM_center = tk.Frame(master=FRM_anvandar_INFO, bg='black')
+    FRM_center.pack(fill=tk.BOTH, expand=True)
+
+    LBL_anvandare = tk.Label(master=FRM_center, text="Välj användarnamn: ", font=("Arial", 20), pady=10, bg='black', fg='magenta2')
     LBL_anvandare.pack()
 
-    ENT_anvandarnamn = tk.Entry(master=FRM_anvandar_INFO, font=("Arial", 12), bg='black', fg='magenta2')
+    ENT_anvandarnamn = tk.Entry(master=FRM_center, font=("Arial", 12), bg='black', fg='magenta2')
     ENT_anvandarnamn.pack()
 
-    BTN_SUBMIT = tk.Button(master=FRM_anvandar_INFO, text="skicka in", command=spel_nivaer, font=("Arial", 12), bg='magenta2', fg='black')
+    BTN_SUBMIT = tk.Button(master=FRM_center, text="skicka in", command=spel_nivaer, font=("Arial", 12), bg='magenta2', fg='black')
     BTN_SUBMIT.pack()
 
-    LBL_spel_DETAILS = tk.Label(master=FRM_anvandar_INFO, text="meningen med spelet \n är att klicka på svarta boxen \n så snabbt som möjligt \n innan tiden tar slut.", font=("Arial", 13), bg='black', fg='magenta2')
-    LBL_spel_DETAILS.place(width=280, x=140, y=150)
+    LBL_spel_DETAILS = tk.Label(master=FRM_center, text="meningen med spelet \n är att klicka på svarta boxen \n så snabbt som möjligt \n innan tiden tar slut.", font=("Arial", 13), bg='black', fg='magenta2')
+    LBL_spel_DETAILS.pack(pady=50)
+
 
 
 
