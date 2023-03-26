@@ -95,7 +95,7 @@ def spel_nivaer():
     ENT_anvandarnamn.pack_forget()
     BTN_SUBMIT.pack_forget()
 
-    # make the window frame longer that hold the button together and lower the buttons
+    # knapparnas storlek, färg och bakrund färg
     FRM_nivaer = tk.Frame(master=window, height=650, width=550, borderwidth=4, relief=tk.SUNKEN, background='black')
     FRM_nivaer.pack(fill=tk.BOTH)
 
@@ -134,14 +134,14 @@ def spel_nivaer():
     BTN_svar.pack(side=tk.TOP, fill=tk.BOTH)
 
   
-    # center the buttons
+    # centrera knapparna
     FRM_nivaer.pack_propagate(False)
     FRM_nivaer.grid_rowconfigure(0, weight=1)
     FRM_nivaer.grid_rowconfigure(4, weight=1)
     FRM_nivaer.grid_columnconfigure(0, weight=1)
     FRM_nivaer.grid_columnconfigure(2, weight=1)
 
-    # center the buttons and move them down
+    # centrera knapparna och flyttar på dem
     BTN_nyborjare.grid(row=1, column=1, padx=10, pady=40, sticky='nsew')
     BTN_normal.grid(row=2, column=1, padx=10, pady=40, sticky='nsew')
     BTN_svar.grid(row=3, column=1, padx=10, pady=40, sticky='nsew')
