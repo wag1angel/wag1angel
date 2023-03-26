@@ -65,7 +65,7 @@ def introduction():
     LBL_användare = tk.Label(master=FRM_användar_INFO, text="Välj användarnamn: ", font=("Arial", 20), pady=15, bg='black', fg='magenta2')
     LBL_användare.pack()
 
-    ENT_användarnamn = tk.Entry(master=FRM_användar_INFO, font=("Arial", 12))
+    ENT_användarnamn = tk.Entry(master=FRM_användar_INFO, font=("Arial", 12), bg='black', fg='magenta2')
     ENT_användarnamn.pack()
 
     BTN_SUBMIT = tk.Button(master=FRM_användar_INFO, text="skicka in", command=spel_nivåer, font=("Arial", 12), bg='magenta2', fg='black')
