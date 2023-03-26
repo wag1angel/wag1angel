@@ -62,7 +62,7 @@ def introduction():
     FRM_anvandar_INFO = tk.Frame(master=window, bg='black')
     FRM_anvandar_INFO.pack(fill=tk.BOTH, expand=True)
 
-    # Lägg till titel
+    # Add title
     LBL_title = tk.Label(master=FRM_anvandar_INFO, text="Aim Trainer", font=("Arial", 30, "bold"), pady=20, bg='black', fg='magenta2')
     LBL_title.pack()
 
@@ -74,13 +74,14 @@ def introduction():
     LBL_anvandare.pack()
 
     ENT_anvandarnamn = tk.Entry(master=FRM_center, font=("Arial", 12), bg='black', fg='magenta2')
-    ENT_anvandarnamn.pack()
+    ENT_anvandarnamn.pack(pady=5)
 
     BTN_SUBMIT = tk.Button(master=FRM_center, text="skicka in", command=spel_nivaer, font=("Arial", 12), bg='magenta2', fg='black')
-    BTN_SUBMIT.pack()
+    BTN_SUBMIT.pack(pady=10)
 
     LBL_spel_DETAILS = tk.Label(master=FRM_center, text="meningen med spelet \n är att klicka på svarta boxen \n så snabbt som möjligt \n innan tiden tar slut.", font=("Arial", 13), bg='black', fg='magenta2')
     LBL_spel_DETAILS.pack(pady=50)
+
 
 
 
