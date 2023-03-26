@@ -4,32 +4,32 @@ import random
 import time
 
 # starta om spelet
-global LBL_poäng
-global BTN_återställ
+global LBL_poang
+global BTN_aterstall
 
 # introduktion
-global FRM_användar_INFO
-global LBL_användare
-global ENT_användarnamn
+global FRM_anvandar_INFO
+global LBL_anvandare
+global ENT_anvandarnamn
 global BTN_SUBMIT
 
 # välj nivå
-global FRM_nivåer
-global LBL_nivå
-global BTN_nybörjare
+global FRM_nivaer
+global LBL_niva
+global BTN_nybarjare
 global BTN_normal
-global BTN_svår
+global BTN_svar
 
 # spelet Layout variables
 global FRM_INFO
-global LBL_användarnamn
+global LBL_anvandarnamn
 global LBL_POINTS
 global LBL_tid
 global FRM_spel
-global BTN_måltavla
+global BTN_maltavla
 
 
-spel_inställningar = {
+spel_installningar = {
     'namn': "",
     'Svårighet_nivå': "",
     'nybörjare': {
@@ -54,135 +54,135 @@ spel_inställningar = {
 
 
 def introduction():
-    global FRM_användar_INFO
-    global LBL_användare
-    global ENT_användarnamn
+    global FRM_anvandar_INFO
+    global LBL_anvandare
+    global ENT_anvandarnamn
     global BTN_SUBMIT
 
-    FRM_användar_INFO = tk.Frame(master=window, bg='black')
-    FRM_användar_INFO.pack(fill=tk.BOTH, expand=True)
+    FRM_anvandar_INFO = tk.Frame(master=window, bg='black')
+    FRM_anvandar_INFO.pack(fill=tk.BOTH, expand=True)
 
-    LBL_användare = tk.Label(master=FRM_användar_INFO, text="Välj användarnamn: ", font=("Arial", 20), pady=15, bg='black', fg='magenta2')
-    LBL_användare.pack()
+    LBL_anvandare = tk.Label(master=FRM_anvandar_INFO, text="Välj användarnamn: ", font=("Arial", 20), pady=15, bg='black', fg='magenta2')
+    LBL_anvandare.pack()
 
-    ENT_användarnamn = tk.Entry(master=FRM_användar_INFO, font=("Arial", 12), bg='black', fg='magenta2')
-    ENT_användarnamn.pack()
+    ENT_anvandarnamn = tk.Entry(master=FRM_anvandar_INFO, font=("Arial", 12), bg='black', fg='magenta2')
+    ENT_anvandarnamn.pack()
 
-    BTN_SUBMIT = tk.Button(master=FRM_användar_INFO, text="skicka in", command=spel_nivåer, font=("Arial", 12), bg='magenta2', fg='black')
+    BTN_SUBMIT = tk.Button(master=FRM_anvandar_INFO, text="skicka in", command=spel_nivaer, font=("Arial", 12), bg='magenta2', fg='black')
     BTN_SUBMIT.pack()
 
-    LBL_spel_DETAILS = tk.Label(master=FRM_användar_INFO, text="meningen med spelet \n är att klicka på svarta boxen \n så snabbt som möjligt \n innan tiden tar slut.", font=("Arial", 13), bg='black', fg='magenta2')
+    LBL_spel_DETAILS = tk.Label(master=FRM_anvandar_INFO, text="meningen med spelet \n är att klicka på svarta boxen \n så snabbt som möjligt \n innan tiden tar slut.", font=("Arial", 13), bg='black', fg='magenta2')
     LBL_spel_DETAILS.place(width=280, x=140, y=150)
 
 
 
-def spel_nivåer():
+def spel_nivaer():
     """
     funktion för att visa och välja svårighet
     """
 
-    global FRM_nivåer
-    global LBL_nivå
-    global BTN_nybörjare
+    global FRM_nivaer
+    global LBL_niva
+    global BTN_nyborjare
     global BTN_normal
-    global BTN_svår
+    global BTN_svar
     global spel_settings
 
-    spel_inställningar['användarnamn'] = ENT_användarnamn.get()
+    spel_installningar['användarnamn'] = ENT_anvandarnamn.get()
 
-    FRM_användar_INFO.pack_forget()
-    LBL_användare.pack_forget()
-    ENT_användarnamn.pack_forget()
+    FRM_anvandar_INFO.pack_forget()
+    LBL_anvandare.pack_forget()
+    ENT_anvandarnamn.pack_forget()
     BTN_SUBMIT.pack_forget()
 
     # make the window frame longer that hold the button together and lower the buttons
-    FRM_nivåer = tk.Frame(master=window, height=650, width=550, borderwidth=4, relief=tk.SUNKEN, background='black')
-    FRM_nivåer.pack(fill=tk.BOTH)
+    FRM_nivaer = tk.Frame(master=window, height=650, width=550, borderwidth=4, relief=tk.SUNKEN, background='black')
+    FRM_nivaer.pack(fill=tk.BOTH)
 
-    LBL_nivå = tk.Label(master=FRM_nivåer, text="välj nivå:", pady=5, font=("Arial", 15), background='black', foreground='magenta2')
-    LBL_nivå.pack()
+    LBL_niva = tk.Label(master=FRM_nivaer, text="välj nivå:", pady=5, font=("Arial", 15), background='black', foreground='magenta2')
+    LBL_niva.pack()
 
-    BTN_nybörjare = tk.Button(
-        master=FRM_nivåer, 
+    BTN_nyborjare = tk.Button(
+        master=FRM_nivaer, 
         text="nybörjare", 
         height=3, width=15, 
         font=("Arial", 12),
-        command=lambda : spel_layout(spel_inställningar['användarnamn'], spel_inställningar['nybörjare']),
+        command=lambda : spel_layout(spel_installningar['användarnamn'], spel_installningar['nybörjare']),
         background='black', foreground='magenta2'
         )
 
     BTN_normal = tk.Button(
-        master=FRM_nivåer, 
+        master=FRM_nivaer, 
         text="normal", 
         height=3, width=15,
         font=("Arial", 12),
-        command=lambda : spel_layout(spel_inställningar['användarnamn'], spel_inställningar['normal']),
+        command=lambda : spel_layout(spel_installningar['användarnamn'], spel_installningar['normal']),
         background='black', foreground='magenta2'
         )
 
-    BTN_svår = tk.Button(
-        master=FRM_nivåer, 
+    BTN_svar = tk.Button(
+        master=FRM_nivaer, 
         text="svår", 
         height=3, width=15,
         font=("Arial", 12),
-        command=lambda : spel_layout(spel_inställningar['användarnamn'], spel_inställningar['svår']),
+        command=lambda : spel_layout(spel_installningar['användarnamn'], spel_installningar['svår']),
         background='black', foreground='magenta2'
         )
 
-    BTN_nybörjare.pack(side=tk.TOP, fill=tk.BOTH)
+    BTN_nyborjare.pack(side=tk.TOP, fill=tk.BOTH)
     BTN_normal.pack(side=tk.TOP, fill=tk.BOTH)
-    BTN_svår.pack(side=tk.TOP, fill=tk.BOTH)
+    BTN_svar.pack(side=tk.TOP, fill=tk.BOTH)
 
   
     # center the buttons
-    FRM_nivåer.pack_propagate(False)
-    FRM_nivåer.grid_rowconfigure(0, weight=1)
-    FRM_nivåer.grid_rowconfigure(4, weight=1)
-    FRM_nivåer.grid_columnconfigure(0, weight=1)
-    FRM_nivåer.grid_columnconfigure(2, weight=1)
+    FRM_nivaer.pack_propagate(False)
+    FRM_nivaer.grid_rowconfigure(0, weight=1)
+    FRM_nivaer.grid_rowconfigure(4, weight=1)
+    FRM_nivaer.grid_columnconfigure(0, weight=1)
+    FRM_nivaer.grid_columnconfigure(2, weight=1)
 
     # center the buttons and move them down
-    BTN_nybörjare.grid(row=1, column=1, padx=10, pady=40, sticky='nsew')
+    BTN_nyborjare.grid(row=1, column=1, padx=10, pady=40, sticky='nsew')
     BTN_normal.grid(row=2, column=1, padx=10, pady=40, sticky='nsew')
-    BTN_svår.grid(row=3, column=1, padx=10, pady=40, sticky='nsew')
+    BTN_svar.grid(row=3, column=1, padx=10, pady=40, sticky='nsew')
 
     window.configure(background='black')
 
 
 
 
-def spel_layout(användarnamn: str, difficulty: List):
+def spel_layout(anvandarnamn: str, difficulty: List):
     """
     funktion för att visa spelets layout
     """
 
     global FRM_INFO
-    global LBL_användarnamn
+    global LBL_anvandarnamn
     global LBL_POINTS
     global LBL_tid
     global FRM_spel
-    global BTN_måltavla
+    global BTN_maltavla
 
-    FRM_nivåer.pack_forget()
-    LBL_nivå.pack_forget()
-    BTN_nybörjare.pack_forget()
+    FRM_nivaer.pack_forget()
+    LBL_niva.pack_forget()
+    BTN_nyborjare.pack_forget()
     BTN_normal.pack_forget()
-    BTN_svår.pack_forget()
+    BTN_svar.pack_forget()
 
     
     FRM_INFO = tk.Frame(master=window, padx=10, pady=10, bg='black')
-    LBL_användarnamn = tk.Label(master=FRM_INFO, text=användarnamn, font=("Arial", 15), fg='magenta2', bg='black')
+    LBL_anvandarnamn = tk.Label(master=FRM_INFO, text=anvandarnamn, font=("Arial", 15), fg='magenta2', bg='black')
     LBL_POINTS = tk.Label(master=FRM_INFO, text=0, font=("Arial", 15), fg='magenta2', bg='black')
     LBL_tid = tk.Label(master=FRM_INFO, text=10, font=("Arial", 15), fg='magenta2', bg='black')
 
     FRM_INFO.pack(fill=tk.BOTH, side=tk.TOP)
-    LBL_användarnamn.pack(side=tk.LEFT)
+    LBL_anvandarnamn.pack(side=tk.LEFT)
     LBL_POINTS.pack(side=tk.LEFT)
     LBL_tid.pack(side=tk.RIGHT)
 
     
     FRM_spel = tk.Frame(master=window, height=550, width=550, relief=tk.SUNKEN, borderwidth=4, bg='black')
-    BTN_måltavla = tk.Button(
+    BTN_maltavla = tk.Button(
         master=FRM_spel, 
         height=difficulty['y'], 
         width=difficulty['x'],
@@ -193,18 +193,18 @@ def spel_layout(användarnamn: str, difficulty: List):
     )
 
     FRM_spel.pack()
-    BTN_måltavla.place(x=230, y=230)
+    BTN_maltavla.place(x=230, y=230)
     
     timer()
 
     
 
 
-def btn_position(spel_nivå):
-    x_axis = random.randint(0, spel_nivå['x_axis_max'])
-    y_axis = random.randint(0, spel_nivå['y_axis_max'])
+def btn_position(spel_niva):
+    x_axis = random.randint(0, spel_niva['x_axis_max'])
+    y_axis = random.randint(0, spel_niva['y_axis_max'])
     LBL_POINTS['text'] += 1
-    BTN_måltavla.place(x=x_axis, y=y_axis)
+    BTN_maltavla.place(x=x_axis, y=y_axis)
 
     
 
@@ -212,40 +212,40 @@ def btn_position(spel_nivå):
 
 def timer():
     global LBL_tid
-    global BTN_måltavla
+    global BTN_maltavla
     global FRM_spel
     global LBL_POINTS
-    global LBL_poäng
-    global BTN_återställ
+    global LBL_poang
+    global BTN_aterstall
 
     LBL_tid['text'] -= 1
 
     if LBL_tid['text'] == 0:
-        BTN_måltavla.place_forget()
+        BTN_maltavla.place_forget()
 
-        LBL_poäng = tk.Label(master=FRM_spel, text=f"Poäng  : {LBL_POINTS['text']}", font=("Arial", 20), bg="black", fg="#EE82EE")
-        LBL_poäng.place(x=150, y=170)
+        LBL_poang = tk.Label(master=FRM_spel, text=f"Poäng  : {LBL_POINTS['text']}", font=("Arial", 20), bg="black", fg="#EE82EE")
+        LBL_poang.place(x=150, y=170)
 
-        BTN_återställ = tk.Button(master=FRM_spel, text="Försök Igen", command=återställ, width=10, bg="black", fg="#EE82EE")
-        BTN_återställ.place(x=230, y=220)
+        BTN_aterstall = tk.Button(master=FRM_spel, text="Försök Igen", command=aterstall, width=10, bg="black", fg="#EE82EE")
+        BTN_aterstall.place(x=230, y=220)
         return 0
 
     LBL_tid.after(1000, timer)
 
 
-def återställ():
-    global LBL_poäng
-    global BTN_återställ
+def aterstall():
+    global LBL_poang
+    global BTN_aterstall
     global FRM_INFO
     global FRM_spel
     
 
-    LBL_poäng.pack_forget()
-    BTN_återställ.pack_forget()
+    LBL_poang.pack_forget()
+    BTN_aterstall.pack_forget()
     FRM_INFO.pack_forget()
     FRM_spel.pack_forget()
 
-    spel_nivåer()
+    spel_nivaer()
     
 
 
