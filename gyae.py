@@ -75,6 +75,7 @@ def introduction():
     LBL_spel_DETAILS.place(width=280, x=140, y=150)
 
 
+
 def spel_nivåer():
     """
     funktion för att visa och välja svårighet
@@ -169,10 +170,10 @@ def spel_layout(användarnamn: str, difficulty: List):
     BTN_svår.pack_forget()
 
     
-    FRM_INFO = tk.Frame(master=window, padx=10, pady=10)
-    LBL_användarnamn = tk.Label(master=FRM_INFO, text=användarnamn, font=("Arial", 15))
-    LBL_POINTS = tk.Label(master=FRM_INFO, text=0, font=("Arial", 15))
-    LBL_tid = tk.Label(master=FRM_INFO, text=10, font=("Arial", 15))
+    FRM_INFO = tk.Frame(master=window, padx=10, pady=10, bg='black')
+    LBL_användarnamn = tk.Label(master=FRM_INFO, text=användarnamn, font=("Arial", 15), fg='magenta2', bg='black')
+    LBL_POINTS = tk.Label(master=FRM_INFO, text=0, font=("Arial", 15), fg='magenta2', bg='black')
+    LBL_tid = tk.Label(master=FRM_INFO, text=10, font=("Arial", 15), fg='magenta2', bg='black')
 
     FRM_INFO.pack(fill=tk.BOTH, side=tk.TOP)
     LBL_användarnamn.pack(side=tk.LEFT)
@@ -180,14 +181,15 @@ def spel_layout(användarnamn: str, difficulty: List):
     LBL_tid.pack(side=tk.RIGHT)
 
     
-    FRM_spel = tk.Frame(master=window, height=550, width=550, relief=tk.SUNKEN, borderwidth=4)
+    FRM_spel = tk.Frame(master=window, height=550, width=550, relief=tk.SUNKEN, borderwidth=4, bg='black')
     BTN_måltavla = tk.Button(
         master=FRM_spel, 
         height=difficulty['y'], 
         width=difficulty['x'],
         borderwidth=3,
         command=lambda: btn_position(difficulty),
-        bg="magenta2"
+        bg="magenta2",
+        fg='black'
     )
 
     FRM_spel.pack()
@@ -195,12 +197,17 @@ def spel_layout(användarnamn: str, difficulty: List):
     
     timer()
 
+    
+
 
 def btn_position(spel_nivå):
     x_axis = random.randint(0, spel_nivå['x_axis_max'])
     y_axis = random.randint(0, spel_nivå['y_axis_max'])
     LBL_POINTS['text'] += 1
     BTN_måltavla.place(x=x_axis, y=y_axis)
+
+    
+
 
 
 def timer():
@@ -216,10 +223,10 @@ def timer():
     if LBL_tid['text'] == 0:
         BTN_måltavla.place_forget()
 
-        LBL_poäng = tk.Label(master=FRM_spel, text=f"Poäng  : {LBL_POINTS['text']}", font=("Arial", 20))
+        LBL_poäng = tk.Label(master=FRM_spel, text=f"Poäng  : {LBL_POINTS['text']}", font=("Arial", 20), bg="black", fg="#EE82EE")
         LBL_poäng.place(x=150, y=170)
 
-        BTN_återställ = tk.Button(master=FRM_spel, text="Försök Igen", command=återställ, width=10)
+        BTN_återställ = tk.Button(master=FRM_spel, text="Försök Igen", command=återställ, width=10, bg="black", fg="#EE82EE")
         BTN_återställ.place(x=230, y=220)
         return 0
 
@@ -231,6 +238,7 @@ def återställ():
     global BTN_återställ
     global FRM_INFO
     global FRM_spel
+    
 
     LBL_poäng.pack_forget()
     BTN_återställ.pack_forget()
@@ -238,11 +246,13 @@ def återställ():
     FRM_spel.pack_forget()
 
     spel_nivåer()
+    
 
 
 window = tk.Tk()
 window.title("Mål träning")
 window.geometry("560x600")
+window.configure(bg="black")
 
 introduction()
 
