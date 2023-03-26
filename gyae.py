@@ -28,24 +28,28 @@ global LBL_tid
 global FRM_spel
 global BTN_måltavla
 
+
 spel_inställningar = {
     'namn': "",
     'Svårighet_nivå': "",
-    'nybörjare': { 
-        'x': 6, 
+    'nybörjare': {
+        'x': 6,
         'y': 3,
         'x_axis_max': 485,
-        'y_axis_max': 485},
-    'normal': { 
-        'x': 3, 
+        'y_axis_max': 485
+    },
+    'normal': {
+        'x': 3,
         'y': 1,
         'x_axis_max': 510,
-        'y_axis_max': 515},
-    'svår': { 
-        'x': 0, 
+        'y_axis_max': 515
+    },
+    'svår': {
+        'x': 0,
         'y': 0,
         'x_axis_max': 530,
-        'y_axis_max': 515}
+        'y_axis_max': 515
+    }
 }
 
 
@@ -55,19 +59,19 @@ def introduction():
     global ENT_användarnamn
     global BTN_SUBMIT
 
-    FRM_användar_INFO = tk.Frame(master=window)
+    FRM_användar_INFO = tk.Frame(master=window, bg='black')
     FRM_användar_INFO.pack(fill=tk.BOTH, expand=True)
 
-    LBL_användare= tk.Label(master=FRM_användar_INFO, text="Välj användarnamn: ", font=("Arial", 20), pady=15)
+    LBL_användare = tk.Label(master=FRM_användar_INFO, text="Välj användarnamn: ", font=("Arial", 20), pady=15, bg='black', fg='magenta2')
     LBL_användare.pack()
 
     ENT_användarnamn = tk.Entry(master=FRM_användar_INFO, font=("Arial", 12))
     ENT_användarnamn.pack()
 
-    BTN_SUBMIT = tk.Button(master=FRM_användar_INFO, text="skicka in", command=spel_nivåer, font=("Arial", 12))
+    BTN_SUBMIT = tk.Button(master=FRM_användar_INFO, text="skicka in", command=spel_nivåer, font=("Arial", 12), bg='magenta2', fg='black')
     BTN_SUBMIT.pack()
 
-    LBL_spel_DETAILS = tk.Label(master=FRM_användar_INFO, text="meningen med spelet \n är att klicka på svarta boxen \n så snabbt som möjligt \n innan tiden tar slut.", font=("Arial", 13))
+    LBL_spel_DETAILS = tk.Label(master=FRM_användar_INFO, text="meningen med spelet \n är att klicka på svarta boxen \n så snabbt som möjligt \n innan tiden tar slut.", font=("Arial", 13), bg='black', fg='magenta2')
     LBL_spel_DETAILS.place(width=280, x=140, y=150)
 
 
