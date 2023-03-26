@@ -79,7 +79,7 @@ def introduction():
     BTN_SUBMIT = tk.Button(master=FRM_center, text="skicka in", command=spel_nivaer, font=("open sans", 12), bg='magenta2', fg='black')
     BTN_SUBMIT.pack(pady=10)
 
-    LBL_spel_DETAILS = tk.Label(master=FRM_center, text="meningen med spelet \n är att klicka på svarta boxen \n så snabbt som möjligt \n innan tiden tar slut.", font=("open sans", 13), bg='black', fg='magenta2')
+    LBL_spel_DETAILS = tk.Label(master=FRM_center, text="meningen med spelet \n är att klicka på svarta boxen \n så snabbt som möjligt \n innan tiden tar slut.", font=("open sans", 15), bg='black', fg='magenta2')
     LBL_spel_DETAILS.pack(pady=50)
 
 
